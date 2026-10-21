@@ -1,0 +1,41 @@
+﻿@model List<MealOrder>
+
+@{
+    ViewData["Title"] = "All Orders";
+}
+
+<h1>All Meal Orders</h1>
+
+<p>Total number of orders: @ViewBag.TotalOrders</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Student Name</th>
+            <th>Meal Name</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderID</td>
+                <td>@order.StudentName</td>
+                <td>@order.MealName</td>
+                <td>
+                    @(order.Collected ? "Collected" : "Not Collected")
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-orderId="@order.OrderID">
+                        View Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><a asp-action="Index">Back to Home</a></p>

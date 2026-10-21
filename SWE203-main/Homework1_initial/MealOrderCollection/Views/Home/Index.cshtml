@@ -1,0 +1,44 @@
+@model List<MealOrder>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>@ViewBag.CafeteriaName</h1>
+
+<p>Today's Date: @ViewBag.CurrentDate</p>
+
+<hr />
+
+<h2>Collected Meals</h2>
+
+<p>Total collected orders: @ViewBag.CollectedCount</p>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No meals have been collected yet.</p>
+}
+else
+{
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Student Name</th>
+                <th>Meal Name</th>
+                <th>Collection Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderID</td>
+                    <td>@order.StudentName</td>
+                    <td>@order.MealName</td>
+                    <td>@order.CollectedAt?.ToString("dd.MM.yyyy HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,22 @@
+@model MealOrder
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h1>Order Details</h1>
+
+<dl>
+    <dt>Order ID</dt>
+    <dd>@Model.OrderID</dd>
+    <dt>Student Name</dt>
+    <dd>@Model.StudentName</dd>
+    <dt>Meal Name</dt>
+    <dd>@Model.MealName</dd>
+    <dt>Status</dt>
+    <dd>@(Model.Collected ? "Collected" : "Not Collected")</dd>
+    <dt>Collection Date and Time</dt>
+    <dd>@(Model.Collected ? Model.CollectedAt?.ToString("dd.MM.yyyy HH:mm") : "Not collected yet")</dd>
+</dl>
+
+<p><a asp-action="AllOrders">Back to All Orders</a></p>

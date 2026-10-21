@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Meal Order Collection</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Home</a> |
+            <a asp-controller="Home" asp-action="AllOrders">All Orders</a> |
+            <a asp-controller="Home" asp-action="Collect">Collect a Meal</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>Developed bY: Kadir Topcuoğlu </p>
+        <p>Student ID: b251202301 </p>
+    </footer>
+</body>
+</html>

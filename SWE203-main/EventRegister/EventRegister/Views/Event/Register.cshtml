@@ -1,0 +1,40 @@
+@model Guest
+
+<partial name="_EventInfo" />
+
+<h2>Please complete the form below to confirm your attendance:</h2>
+
+
+@*novalidate removes HTML5 validation*@
+
+<form asp-action="Register" method="post" novalidate>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+       <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Will Attend: </label>
+        <select name="WillAttend">
+            <option value="true">Attending</option>
+            <option value="false">Not Attending</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Response</button>
+</form>
+
+
+
+@section Footer {
+    <p>Need help? Contact the conference organizers: beken@sakarya.edu.tr</p>
+}
